@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Browse Stocks</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<h1 class="fav-stock-header">Favorite Stocks</h1>
+
+<input type="text" id="stockTicker" placeholder="Enter stock ticker">
+<select id="timeRangeSelect">
+    <option value="1d">1 Day</option>
+    <option value="3d">3 Days</option>
+    <option value="7d">7 Days</option>
+    <option value="24d">24 Days</option>
+    <option value="12h">12 Hours</option>
+    <option value="14d">14 Days</option>
+    <option value="28d">28 Days</option>
+    <option value="3month">3 Months</option>
+    <option value="6month">6 Months</option>
+    <option value="9month">9 Months</option>
+    <option value="12month">12 Months</option>
+    <option value="2year">2 Years</option>
+</select>
+<button onclick="getStockData()">Get Data</button>
+<canvas id="stockChart"></canvas>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
