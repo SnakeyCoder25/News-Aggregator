@@ -1,14 +1,20 @@
-let chart = null;  // This will hold our chart instance
+let chart = null;
 
 function getStockData() {
     const ticker = document.getElementById('stockTicker').value.toUpperCase();
+    const timeRange = document.getElementById('timeRange').value;
+
     if (!ticker) {
         alert('Please enter a valid ticker');
         return;
     }
 
+    const endDate = new Date();
+    const startDate = new Date();
+    startDate.setMonth(endDate.getMonth() - timeRange);
+
     const apiKey = 'mDRKtQCuCHeM5slDzrBpg9CUfuUJ8ZMs';
-    const url = `https://api.polygon.io/v2/aggs/ticker/${ticker}/range/1/day/2022-01-03/2022-12-31?apiKey=${apiKey}`;
+    const url = `https://api.polygon.io/v2/aggs/ticker/${ticker}/range/1/day/${startDate.toISOString().split('T')[0]}/${endDate.toISOString().split('T')[0]}?apiKey=${apiKey}`;
 
     fetch(url)
     .then(response => {
@@ -25,7 +31,7 @@ function getStockData() {
         const closes = data.results.map(result => result.c);
 
         if (chart) {
-            chart.destroy();  // If a chart already exists, destroy it before creating a new one
+            chart.destroy();
         }
 
         const ctx = document.getElementById('stockChart').getContext('2d');

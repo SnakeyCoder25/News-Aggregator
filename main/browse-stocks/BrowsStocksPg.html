@@ -8,6 +8,13 @@
 <h1 class="fav-stock-header">Favorite Stocks</h1>
 
 <input type="text" id="stockTicker" placeholder="Enter stock ticker">
+<select id="timeRange">
+    <option value="1">1 Month</option>
+    <option value="3">3 Months</option>
+    <option value="6">6 Months</option>
+    <option value="12">1 Year</option>
+    <option value="24">2 Years</option>
+</select>
 <button onclick="getStockData()">Get Data</button>
 <canvas id="stockChart"></canvas>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
