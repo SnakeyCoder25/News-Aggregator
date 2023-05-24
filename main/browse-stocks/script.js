@@ -7,7 +7,7 @@ function getStockData() {
         return;
     }
 
-    const apiKey = 'your-api-key';
+    const apiKey = 'mDRKtQCuCHeM5slDzrBpg9CUfuUJ8ZMs';
     const url = `https://api.polygon.io/v2/aggs/ticker/${ticker}/range/1/day/2022-01-03/2022-12-31?apiKey=${apiKey}`;
 
     fetch(url)
