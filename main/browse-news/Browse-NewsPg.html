@@ -2,33 +2,7 @@
 <html>
 
 <head>
-  <script>
-    function getNews() {
-        var searchWorkd = document.getElementById("msg").value;
-        
-       var url = 'https://newsapi.org/v2/everything?' +
-          'q='+ searchWorkd + '&' +
-          'from=2023-05-20&' +
-          'sortBy=popularity&' +
-          'language=en&' +
-          'searchIn=title&' +
-          'apiKey=c86f8a41ad0143c3a4dff849ead3b860';
-
-        
-
-        fetch(url) 
-        .then(a => a.json())
-        .then(response => {
-            for(var i=0; i<response.articles.length; i++){
-                document.getElementById("output").innerHTML += "<div style='padding-top: 20px;'> <img style='float:left; width:150px;' scr='"+response.articles[i].urlToImage+"'><h1>"+response.articles[i].title+"</h1>"+response.articles[i].source.name+"<br>"+response.articles[i].description+" <a href='"+response.articles[i].url+"target='_blank'>"+response.articles[i].url+"</a></div>";
-            }
-        })
-      
-              
-                //document.getElementById("demo").innerHTML = response.json();
-            
-    }
-  </script>
+  <script src="script.js"></script>
   
 
   <link rel="stylesheet" href="styles.css" />
