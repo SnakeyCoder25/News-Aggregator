@@ -1,40 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>CSS Hamburger Menu</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="menu.css">
+    </head>
+    <body>
+        <header>
+            <h1>StockWave</h1>
+        </header>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Navbar Working</title>
-</head>
-
-<body>
-    <header class="header">
-        <nav class="navbar">
-            <a href="#" class="nav-logo">StockWave</a>
-            <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="#" class="nav-link">Services</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">Blog</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">About</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">Contact</a>
-                </li>
-            </ul>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+        <!-- HAMBURGER MENU START -->
+        <div class="m-menu">
+            <input class="m-menu__toggle" type="checkbox">
+            <div class="m-menu__burger">
+                <span></span>
             </div>
-        </nav>
-    </header>
-</body>
+            <div class="m-menu__content">
+                <nav>
+                    <h2 class="m-menu__title"></h2>
+                    <ul>
+                        <li><a href="index.html" class="m-menu__link -current">Home</a></li>
+                        <li><a href="index.html" class="m-menu__link">News</a></li>
+                        <li><a href="index.html" class="m-menu__link">Add Stocks</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="m-menu__backdrop"></div>
+        </div>
+        <!-- HAMBURGER MENU END -->
 
-<script src="main.js"></script>
+        <main>
+    </body>
 </html>

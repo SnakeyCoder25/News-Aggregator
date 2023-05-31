@@ -1,114 +1,67 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,400&display=swap');
-
-* {
-    margin: 0;
-    padding: 0;
+*, *::before, *::after {
     box-sizing: border-box;
+    position: relative;
+    font-family: 'Helvetica', sans-serif;;
+    cursor: default;
+    margin: 0;
 }
 
 html {
-    font-size: 62.5%;
-    font-family: 'Roboto', sans-serif;
+    background-color: rgba(194, 63, 47, 1);
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    font-size: 62.5%; /* This should produce 10px, and from now 1rem = 10px. */
 }
 
-li {
-    list-style: none;
-}
-
-a {
-    text-decoration: none;
-}
-
-.header{
-    border-bottom: 1px solid #E2E8F0;
-}
-
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 1.5rem;
-}
-
-.hamburger {
-    display: none;
-}
-
-.bar {
-    display: block;
-    width: 25px;
-    height: 3px;
-    margin: 5px auto;
-    -webkit-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
-    background-color: #101010;
-}
-
-.nav-menu {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.nav-item {
-    margin-left: 5rem;
-}
-
-.nav-link{
-    font-size: 1.6rem;
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    color: rgba(45, 45, 45, 1);
     font-weight: 400;
-    color: #475569;
+    font-style: normal;
+    font-size: 2rem;
+    line-height: 3.2rem;
+    letter-spacing: 0.01rem;
+    font-variant-ligatures: no-common-ligatures;
+    font-feature-settings: "kern", "liga" 0, "clig" 0;
+    scroll-behavior: smooth;
+    overflow-x: hidden; /* On Windows the scrollbars can go crazy */
+    background: rgba(0, 0, 0, 0);
 }
 
-.nav-link:hover{
-    color: #482ff7;
+header,
+footer,
+footer a
+{
+    text-align: center;
+    color: rgba(255, 238, 222, 1);
 }
 
-.nav-logo {
-    font-size: 2.1rem;
-    font-weight: 500;
-    color: #482ff7;
+main {
+    max-width: 100rem;
+    margin: 2rem 6rem;
+    padding: 2rem;
+    background: rgba(255, 238, 222, 1);
 }
 
-@media only screen and (max-width: 768px) {
-    .nav-menu {
-        position: fixed;
-        left: -100%;
-        top: 5rem;
-        flex-direction: column;
-        background-color: #fff;
-        width: 100%;
-        border-radius: 10px;
-        text-align: center;
-        transition: 0.3s;
-        box-shadow:
-            0 10px 27px rgba(0, 0, 0, 0.05);
-    }
+h1 {
+    font-size: 5rem;
+    line-height: 6.5rem;
+    padding: 4rem;
+}
 
-    .nav-menu.active {
-        left: 0;
-    }
+h2 {
+    font-size: 4rem;
+    line-height: 5rem;
+    padding: 3rem 4rem;
+}
 
-    .nav-item {
-        margin: 2.5rem 0;
-    }
-
-    .hamburger {
-        display: block;
-        cursor: pointer;
-    }
-
-    .hamburger.active .bar:nth-child(2) {
-        opacity: 0;
-    }
-
-    .hamburger.active .bar:nth-child(1) {
-        -webkit-transform: translateY(8px) rotate(45deg);
-        transform: translateY(8px) rotate(45deg);
-    }
-
-    .hamburger.active .bar:nth-child(3) {
-        -webkit-transform: translateY(-8px) rotate(-45deg);
-        transform: translateY(-8px) rotate(-45deg);
-    }
+p {
+    padding: 1rem 4rem;
+    margin-bottom: 3rem;
 }
