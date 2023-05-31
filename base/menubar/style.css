@@ -1,67 +1,60 @@
-*, *::before, *::after {
-    box-sizing: border-box;
-    position: relative;
-    font-family: 'Helvetica', sans-serif;;
-    cursor: default;
-    margin: 0;
-}
-
-html {
-    background-color: rgba(194, 63, 47, 1);
-    position: relative;
-    margin: 0;
-    padding: 0;
-    width: 100vw;
-    height: 100vh;
-    font-size: 62.5%; /* This should produce 10px, and from now 1rem = 10px. */
-}
-
 body {
     margin: 0;
-    padding: 0;
-    width: 100vw;
-    height: 100vh;
-    color: rgba(45, 45, 45, 1);
-    font-weight: 400;
-    font-style: normal;
-    font-size: 2rem;
-    line-height: 3.2rem;
-    letter-spacing: 0.01rem;
-    font-variant-ligatures: no-common-ligatures;
-    font-feature-settings: "kern", "liga" 0, "clig" 0;
-    scroll-behavior: smooth;
-    overflow-x: hidden; /* On Windows the scrollbars can go crazy */
-    background: rgba(0, 0, 0, 0);
+    font-family: Arial, sans-serif;
 }
 
-header,
-footer,
-footer a
-{
-    text-align: center;
-    color: rgba(255, 238, 222, 1);
+.navbar {
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    z-index: 100;
 }
 
-main {
-    max-width: 100rem;
-    margin: 2rem 6rem;
-    padding: 2rem;
-    background: rgba(255, 238, 222, 1);
+.navbar-logo {
+    display: flex;
+    align-items: center;
 }
 
-h1 {
-    font-size: 5rem;
-    line-height: 6.5rem;
-    padding: 4rem;
+.navbar-logo img {
+    height: 30px;
+    margin-right: 10px;
 }
 
-h2 {
-    font-size: 4rem;
-    line-height: 5rem;
-    padding: 3rem 4rem;
+.navbar-menu {
+    display: none;
 }
 
-p {
-    padding: 1rem 4rem;
-    margin-bottom: 3rem;
+.navbar-menu.open {
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar-menu-item {
+    padding: 10px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.navbar-toggle {
+    display: block;
+    width: 30px;
+    height: 30px;
+    background-color: #333;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.navbar-toggle span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    margin-bottom: 6px;
 }

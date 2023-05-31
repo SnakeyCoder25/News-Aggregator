@@ -1,36 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>CSS Hamburger Menu</title>
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="menu.css">
-    </head>
-    <body>
-        <header>
-            <h1>StockWave</h1>
-        </header>
 
-        <!-- HAMBURGER MENU START -->
-        <div class="m-menu">
-            <input class="m-menu__toggle" type="checkbox">
-            <div class="m-menu__burger">
-                <span></span>
-            </div>
-            <div class="m-menu__content">
-                <nav>
-                    <h2 class="m-menu__title"></h2>
-                    <ul>
-                        <li><a href="index.html" class="m-menu__link -current">Home</a></li>
-                        <li><a href="index.html" class="m-menu__link">News</a></li>
-                        <li><a href="index.html" class="m-menu__link">Add Stocks</a></li>
-                    </ul>
-                </nav>
-            </div>
-            <div class="m-menu__backdrop"></div>
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Hamburger Menu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="navbar-logo">
+            <img src="logo.png" alt="Logo">
+            <span>Logo</span>
         </div>
-        <!-- HAMBURGER MENU END -->
+        <button class="navbar-toggle" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="navbar-menu" id="navbarMenu">
+            <a href="#" class="navbar-menu-item">Home</a>
+            <a href="#" class="navbar-menu-item">About</a>
+            <a href="#" class="navbar-menu-item">Services</a>
+            <a href="#" class="navbar-menu-item">Contact</a>
+        </div>
+    </div>
 
-        <main>
-    </body>
+    <script>
+        function toggleMenu() {
+            var navbarMenu = document.getElementById("navbarMenu");
+            navbarMenu.classList.toggle("open");
+        }
+    </script>
+</body>
+
 </html>
