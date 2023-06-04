@@ -13,21 +13,26 @@ localStorage.setItem("4", x4);
 
 //GPT CODE
 let slideIndex = 0;
-showSlide(slideIndex);
+showSlides(slideIndex);
 
 function changeSlide(n) {
-  showSlide((slideIndex += n));
+  slideIndex += n;
+  showSlides(slideIndex);
 }
 
-function showSlide(n) {
+function showSlides(n) {
   const slides = document.getElementsByClassName('slide');
   if (n >= slides.length) {
     slideIndex = 0;
   } else if (n < 0) {
-    slideIndex = slides.length - 1;
+    slideIndex = slides.length - 2;
   }
   for (let i = 0; i < slides.length; i++) {
     slides[i].style.display = 'none';
   }
-  slides[slideIndex].style.display = 'block';
+
+  const currentIndex = slideIndex % Math.ceil(slides.length / 2) * 2;
+
+  slides[currentIndex].style.display = 'block';
+  slides[currentIndex + 1].style.display = 'block';
 }
