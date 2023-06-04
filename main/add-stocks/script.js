@@ -35,4 +35,19 @@ function showSlides(n) {
 
   slides[currentIndex].style.display = 'block';
   slides[currentIndex + 1].style.display = 'block';
+
+  const stockNames = ['AAPL', 'GOOGL', 'MSFT', 'AMZN']; // Example stock names
+  for (let i = 0; i < slides.length; i += 2) {
+    const stockIndex = (currentIndex + i) / 2;
+    slides[i].querySelector('.placeholder').textContent = stockNames[stockIndex % stockNames.length];
+    slides[i + 1].querySelector('.placeholder').textContent = stockNames[(stockIndex + 1) % stockNames.length];
+  }
 }
+
+
+
+
+  
+  
+  
+  
