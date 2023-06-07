@@ -12,6 +12,63 @@ localStorage.setItem("4", x4);
 //localStorage.getElementById = document.getElementById("One");
 
 //GPT CODE
+
+/* 
+async function getCurrentStockPrice(symbol) {
+    const apiKey = 'mDRKtQCuCHeM5slDzrBpg9CUfuUJ8ZMs'; // Replace with your Polygon.io API key
+    const url = `https://api.polygon.io/v1/last/stocks/${symbol}?apiKey=${apiKey}`;
+  
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      console.log(data); // Log the response for troubleshooting
+      const currentPrice = data.last.price;
+  
+      return currentPrice;
+    } catch (error) {
+      console.log('Error:', error);
+    }
+  }
+  
+  
+  let slideIndex = 0;
+  showSlides(slideIndex);
+  
+  function changeSlide(n) {
+    slideIndex += n;
+    showSlides(slideIndex);
+  }
+  
+  async function showSlides(n) {
+    const slides = document.getElementsByClassName('slide');
+    if (n >= slides.length) {
+      slideIndex = 0;
+    } else if (n < 0) {
+      slideIndex = slides.length - 2;
+    }
+    for (let i = 0; i < slides.length; i++) {
+      slides[i].style.display = 'none';
+    }
+  
+    const currentIndex = slideIndex % Math.ceil(slides.length / 2) * 2;
+  
+    slides[currentIndex].style.display = 'block';
+    slides[currentIndex + 1].style.display = 'block';
+  
+    const stockNames = ['AAPL', 'GOOGL', 'MSFT', 'AMZN']; // Example stock names
+  
+    const pricePromises = stockNames.map(symbol => getCurrentStockPrice(symbol));
+    const prices = await Promise.all(pricePromises);
+  
+    document.getElementById('slide1').textContent = `${stockNames[0]}: ${prices[0]}`;
+    document.getElementById('slide2').textContent = `${stockNames[1]}: ${prices[1]}`;
+    document.getElementById('slide3').textContent = `${stockNames[2]}: ${prices[2]}`;
+    document.getElementById('slide4').textContent = `${stockNames[3]}: ${prices[3]}`;
+  }
+  
+  
+*/
+  
 let slideIndex = 0;
 showSlides(slideIndex);
 
@@ -31,17 +88,16 @@ function showSlides(n) {
     slides[i].style.display = 'none';
   }
 
-  const currentIndex = slideIndex % Math.ceil(slides.length / 2) * 2;
+  const currentIndex = slideIndex % Math.floor(slides.length / 2) * 2;
 
   slides[currentIndex].style.display = 'block';
   slides[currentIndex + 1].style.display = 'block';
 
   const stockNames = ['AAPL', 'GOOGL', 'MSFT', 'AMZN']; // Example stock names
-  for (let i = 0; i < slides.length; i += 2) {
-    const stockIndex = (currentIndex + i) / 2;
-    slides[i].querySelector('.placeholder').textContent = stockNames[stockIndex % stockNames.length];
-    slides[i + 1].querySelector('.placeholder').textContent = stockNames[(stockIndex + 1) % stockNames.length];
-  }
+  document.getElementById('slide1').textContent = stockNames[currentIndex / 2];
+  document.getElementById('slide2').textContent = stockNames[currentIndex / 2 + 1];
+  document.getElementById('slide3').textContent = stockNames[(currentIndex / 2 + 2) % stockNames.length];
+  document.getElementById('slide4').textContent = stockNames[(currentIndex / 2 + 3) % stockNames.length];
 }
 
 
