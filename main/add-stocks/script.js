@@ -68,7 +68,43 @@ async function getCurrentStockPrice(symbol) {
   
   
 */
-  
+/*
+function getprice(stockletters){
+  const fetch = require('node-fetch');
+
+// Replace 'YOUR_API_KEY' with your actual API key from Polygon.io
+const apiKey = 'mDRKtQCuCHeM5slDzrBpg9CUfuUJ8ZMs';
+
+// Define the symbol for AAPL (Apple Inc.)
+const symbol = stockletters;
+
+// Define the API endpoint for the last trade quote
+const endpoint = `https://api.polygon.io/v2/last/trade/${symbol}?apiKey=${apiKey}`;
+
+// Make the API request
+fetch(endpoint)
+  .then(response => response.json())
+  .then(data => {
+    // Extract the current stock price
+    const currentPrice = data.last.price;
+    return currentPrice;
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+}
+*/
+
+function getCurrentStockPrice(symbol) {
+  const apiKey = 'mDRKtQCuCHeM5slDzrBpg9CUfuUJ8ZMs';
+  const endpoint = `https://api.polygon.io/v2/last/trade/${symbol}?apiKey=${apiKey}`;
+
+  return fetch(endpoint)
+    .then(response => response.json())
+    .then(data => `The current stock price of ${symbol} is $${data.last.price}`)
+    .catch(error => { throw error; });
+}
+
 let slideIndex = 0;
 showSlides(slideIndex);
 
@@ -94,7 +130,7 @@ function showSlides(n) {
   slides[currentIndex + 1].style.display = 'block';
 
   const stockNames = ['AAPL', 'GOOGL', 'MSFT', 'AMZN']; // Example stock names
-  document.getElementById('slide1').textContent = stockNames[currentIndex / 2];
+  document.getElementById('slide1').textContent = stockNames[currentIndex / 2]+ ':', getCurrentStockPrice(stockNames[currentIndex / 2]);
   document.getElementById('slide2').textContent = stockNames[currentIndex / 2 + 1];
   document.getElementById('slide3').textContent = stockNames[(currentIndex / 2 + 2) % stockNames.length];
   document.getElementById('slide4').textContent = stockNames[(currentIndex / 2 + 3) % stockNames.length];
