@@ -5,11 +5,11 @@ body {
 }
 
 div {
-    margin-top: 100px;
+    margin-top: 200px;
 }
 
 img {
-    width: 200px;
+    width: 600px;
 }
 
 h1 {
@@ -19,7 +19,7 @@ h1 {
 }
 
 button {
-    background-color: #4CAF50;
+    background-color: #FF6969;
     color: white;
     padding: 10px 20px;
     border: none;
