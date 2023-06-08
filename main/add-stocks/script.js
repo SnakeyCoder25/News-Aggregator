@@ -136,7 +136,32 @@ function showSlides(n) {
   document.getElementById('slide4').textContent = stockNames[(currentIndex / 2 + 3) % stockNames.length];
 }
 
+$(document).ready(function() {
+  // Function to make the API request and update the stock price
+  function getStockPriceYesterday() {
+      // Replace 'YOUR_API_KEY' with your actual Polygon.io API key
+      var apiKey = 'mDRKtQCuCHeM5slDzrBpg9CUfuUJ8ZMs';
+      var today = new Date();
+      var yesterday = new Date(today);
+      yesterday.setDate(today.getDate() - 1);
+      var dateStr = yesterday.toISOString().split('T')[0];
 
+      var url = 'https://api.polygon.io/v2/aggs/ticker/AAPL/prev?unadjusted=true&apiKey=' + apiKey + '&endDate=' + dateStr + '&limit=1';
+
+      $.getJSON(url, function(data) {
+          var stockPriceYesterday = data.results[0].c;
+          $('#stockPriceYesterday').text(stockPriceYesterday);
+      });
+  }
+
+  // Call the function to initially populate the stock price
+  getStockPriceYesterday();
+
+  // Refresh the stock price on page reload
+  $(window).on('beforeunload', function() {
+      getStockPriceYesterday();
+  });
+});
 
 
   
