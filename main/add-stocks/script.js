@@ -118,7 +118,41 @@ function getStockPriceYesterday(stock) {
 }
 */
 
+/* ORIGIONAL CODE
 
+let slideIndex = 0;
+showSlides(slideIndex);
+
+function changeSlide(n) {
+  slideIndex += n;
+  showSlides(slideIndex);
+}
+
+function showSlides(n) {
+  const slides = document.getElementsByClassName('slide');
+  if (n >= slides.length) {
+    slideIndex = 0;
+  } else if (n < 0) {
+    slideIndex = slides.length - 2;
+  }
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = 'none';
+  }
+
+  const currentIndex = slideIndex % Math.floor(slides.length / 2) * 2;
+
+  slides[currentIndex].style.display = 'block';
+  slides[currentIndex + 1].style.display = 'block';
+
+  const stockNames = ['AAPL', 'GOOGL', 'MSFT', 'AMZN']; // Example stock names
+  document.getElementById('slide1').textContent = stockNames[currentIndex / 2];
+  document.getElementById('slide2').textContent = stockNames[currentIndex / 2 + 1];
+  document.getElementById('slide3').textContent = stockNames[(currentIndex / 2 + 2) % stockNames.length];
+  document.getElementById('slide4').textContent = stockNames[(currentIndex / 2 + 3) % stockNames.length];
+}
+
+
+*/
 function getStockPriceYesterday(stockSymbol, callback) {
   const apiKey = 'mDRKtQCuCHeM5slDzrBpg9CUfuUJ8ZMs';
   const today = new Date();
