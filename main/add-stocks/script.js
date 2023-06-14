@@ -117,97 +117,37 @@ function getStockPriceYesterday(stock) {
   });
 }
 */
-$(document).ready(function() {
-  let slideIndex = 0;
+let slideIndex = 0;
+showSlides(slideIndex);
+
+function changeSlide(n) {
+  slideIndex += n;
   showSlides(slideIndex);
+}
 
-  function changeSlide(n) {
-    slideIndex += n;
-    showSlides(slideIndex);
+function showSlides(n) {
+  const slides = document.getElementsByClassName('slide');
+  if (n >= slides.length) {
+    slideIndex = 0;
+  } else if (n < 0) {
+    slideIndex = slides.length - 2;
+  }
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = 'none';
   }
 
-  function showSlides(n) {
-    const slides = document.getElementsByClassName('slide');
-    if (n >= slides.length) {
-      slideIndex = 0;
-    } else if (n < 0) {
-      slideIndex = slides.length - 2;
-    }
-    for (let i = 0; i < slides.length; i++) {
-      slides[i].style.display = 'none';
-    }
+  const currentIndex = slideIndex % Math.floor(slides.length / 2) * 2;
 
-    const currentIndex = slideIndex % Math.floor(slides.length / 2) * 2;
+  slides[currentIndex].style.display = 'block';
+  slides[currentIndex + 1].style.display = 'block';
 
-    slides[currentIndex].style.display = 'block';
-    slides[currentIndex + 1].style.display = 'block';
+  const stockNames = ['AAPL', 'GOOGL', 'MSFT', 'AMZN']; // Example stock names
+  document.getElementById('slide1').textContent = stockNames[currentIndex / 2];
+  document.getElementById('slide2').textContent = stockNames[currentIndex / 2 + 1];
+  document.getElementById('slide3').textContent = stockNames[(currentIndex / 2 + 2) % stockNames.length];
+  document.getElementById('slide4').textContent = stockNames[(currentIndex / 2 + 3) % stockNames.length];
+}
 
-    const stockNames = ['AAPL', 'GOOGL', 'MSFT', 'AMZN']; // Example stock names
-    document.getElementById('slide1').textContent = stockNames[currentIndex / 2] + ': ' + getStockPriceYesterday(stockNames[currentIndex / 2]);
-    document.getElementById('slide2').textContent = stockNames[currentIndex / 2 + 1] + ': ' + getStockPriceYesterday(stockNames[currentIndex / 2 + 1]);
-    document.getElementById('slide3').textContent = stockNames[(currentIndex / 2 + 2) % stockNames.length] + ': ' + getStockPriceYesterday(stockNames[(currentIndex / 2 + 2) % stockNames.length]);
-    document.getElementById('slide4').textContent = stockNames[(currentIndex / 2 + 3) % stockNames.length] + ': ' + getStockPriceYesterday(stockNames[(currentIndex / 2 + 3) % stockNames.length]);
-  }
-
-  // Function to make the API request and get the stock price
-  function getStockPriceYesterday(stockSymbol) {
-    var apiKey = 'YOUR_API_KEY';
-    var today = new Date();
-    var yesterday = new Date(today);
-    yesterday.setDate(today.getDate() - 1);
-    var dateStr = yesterday.toISOString().split('T')[0];
-
-    var url = 'https://api.polygon.io/v2/aggs/ticker/' + stockSymbol + '/prev?unadjusted=true&apiKey=' + apiKey + '&endDate=' + dateStr + '&limit=1';
-
-    return new Promise((resolve, reject) => {
-      fetch(url)
-        .then(response => response.json())
-        .then(data => {
-          var stockPriceYesterday = data.results[0].c;
-          resolve(stockPriceYesterday);
-        })
-        .catch(error => {
-          reject(error);
-        });
-    });
-  }
-
-  // Call the function to initially populate the stock prices
-  Promise.all([
-    getStockPriceYesterday('AAPL'),
-    getStockPriceYesterday('GOOGL'),
-    getStockPriceYesterday('MSFT'),
-    getStockPriceYesterday('AMZN')
-  ])
-  .then(stockPrices => {
-    document.getElementById('slide1').textContent += ' ' + stockPrices[0];
-    document.getElementById('slide2').textContent += ' ' + stockPrices[1];
-    document.getElementById('slide3').textContent += ' ' + stockPrices[2];
-    document.getElementById('slide4').textContent += ' ' + stockPrices[3];
-  })
-  .catch(error => {
-    console.log('Error fetching stock prices:', error);
-  });
-
-  // Refresh the stock prices on page reload
-  $(window).on('beforeunload', function() {
-    Promise.all([
-      getStockPriceYesterday('AAPL'),
-      getStockPriceYesterday('GOOGL'),
-      getStockPriceYesterday('MSFT'),
-      getStockPriceYesterday('AMZN')
-    ])
-    .then(stockPrices => {
-      document.getElementById('slide1').textContent += ' ' + stockPrices[0];
-      document.getElementById('slide2').textContent += ' ' + stockPrices[1];
-      document.getElementById('slide3').textContent += ' ' + stockPrices[2];
-      document.getElementById('slide4').textContent += ' ' + stockPrices[3];
-    })
-    .catch(error => {
-      console.log('Error fetching stock prices:', error);
-    });
-  });
-});
 $(document).ready(function() {
   // Function to make the API request and update the stock price
   function getStockPriceYesterday() {
