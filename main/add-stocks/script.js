@@ -141,7 +141,6 @@ function getStockPriceYesterday(stockSymbol, callback) {
 }
 
 let slideIndex = 0;
-showSlides(slideIndex);
 
 function changeSlide(n) {
   slideIndex += n;
@@ -182,6 +181,28 @@ function showSlides(n) {
     document.getElementById('slide4').textContent = stockNames[(currentIndex / 2 + 3) % stockNames.length] + ': ' + stockPrice4;
   });
 }
+
+// Example usage:
+document.addEventListener('DOMContentLoaded', function() {
+  // Call the function to initially populate the stock prices
+  showSlides(slideIndex);
+
+  // Add event listeners to the arrow buttons
+  const prevButton = document.getElementById('prevButton');
+  const nextButton = document.getElementById('nextButton');
+
+  prevButton.addEventListener('click', function() {
+    changeSlide(-1);
+  });
+
+  nextButton.addEventListener('click', function() {
+    changeSlide(1);
+  });
+});
+
+
+
+//-----------------------------
 
 $(document).ready(function() {
   // Function to make the API request and update the stock price
