@@ -94,6 +94,12 @@ fetch(endpoint)
   });
 }
 */
+
+
+
+
+
+
 /*
 function getStockPriceYesterday(stock) {
   
