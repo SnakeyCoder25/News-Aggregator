@@ -117,6 +117,29 @@ function getStockPriceYesterday(stock) {
   });
 }
 */
+
+
+function getStockPriceYesterday(stockSymbol, callback) {
+  const apiKey = 'mDRKtQCuCHeM5slDzrBpg9CUfuUJ8ZMs';
+  const today = new Date();
+  const yesterday = new Date(today);
+  yesterday.setDate(today.getDate() - 1);
+  const dateStr = yesterday.toISOString().split('T')[0];
+
+  const url = `https://api.polygon.io/v2/aggs/ticker/${stockSymbol}/prev?unadjusted=true&apiKey=${apiKey}&endDate=${dateStr}&limit=1`;
+
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      const stockPriceYesterday = data.results[0].c;
+      callback(stockPriceYesterday);
+    })
+    .catch(error => {
+      console.log('Error fetching stock price:', error);
+      callback(null);
+    });
+}
+
 let slideIndex = 0;
 showSlides(slideIndex);
 
@@ -142,10 +165,22 @@ function showSlides(n) {
   slides[currentIndex + 1].style.display = 'block';
 
   const stockNames = ['AAPL', 'GOOGL', 'MSFT', 'AMZN']; // Example stock names
-  document.getElementById('slide1').textContent = stockNames[currentIndex / 2];
-  document.getElementById('slide2').textContent = stockNames[currentIndex / 2 + 1];
-  document.getElementById('slide3').textContent = stockNames[(currentIndex / 2 + 2) % stockNames.length];
-  document.getElementById('slide4').textContent = stockNames[(currentIndex / 2 + 3) % stockNames.length];
+
+  getStockPriceYesterday(stockNames[currentIndex / 2], function(stockPrice1) {
+    document.getElementById('slide1').textContent = stockNames[currentIndex / 2] + ': ' + stockPrice1;
+  });
+
+  getStockPriceYesterday(stockNames[currentIndex / 2 + 1], function(stockPrice2) {
+    document.getElementById('slide2').textContent = stockNames[currentIndex / 2 + 1] + ': ' + stockPrice2;
+  });
+
+  getStockPriceYesterday(stockNames[(currentIndex / 2 + 2) % stockNames.length], function(stockPrice3) {
+    document.getElementById('slide3').textContent = stockNames[(currentIndex / 2 + 2) % stockNames.length] + ': ' + stockPrice3;
+  });
+
+  getStockPriceYesterday(stockNames[(currentIndex / 2 + 3) % stockNames.length], function(stockPrice4) {
+    document.getElementById('slide4').textContent = stockNames[(currentIndex / 2 + 3) % stockNames.length] + ': ' + stockPrice4;
+  });
 }
 
 $(document).ready(function() {
