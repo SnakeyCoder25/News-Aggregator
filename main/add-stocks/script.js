@@ -94,17 +94,23 @@ fetch(endpoint)
   });
 }
 */
+/*
+function getStockPriceYesterday(stock) {
+  
+  var apiKey = 'mDRKtQCuCHeM5slDzrBpg9CUfuUJ8ZMs';
+  var today = new Date();
+  var yesterday = new Date(today);
+  yesterday.setDate(today.getDate() - 1);
+  var dateStr = yesterday.toISOString().split('T')[0];
 
-function getCurrentStockPrice(symbol) {
-  const apiKey = 'mDRKtQCuCHeM5slDzrBpg9CUfuUJ8ZMs';
-  const endpoint = `https://api.polygon.io/v2/last/trade/${symbol}?apiKey=${apiKey}`;
+  var url = 'https://api.polygon.io/v2/aggs/ticker/' + stock + '/prev?unadjusted=true&apiKey=' + apiKey + '&endDate=' + dateStr + '&limit=1';
 
-  return fetch(endpoint)
-    .then(response => response.json())
-    .then(data => `The current stock price of ${symbol} is $${data.last.price}`)
-    .catch(error => { throw error; });
+  $.getJSON(url, function(data) {
+      var stockPriceYesterday = data.results[0].c;
+      $('#stockPriceYesterday').text(stockPriceYesterday);
+  });
 }
-
+*/
 let slideIndex = 0;
 showSlides(slideIndex);
 
@@ -130,7 +136,7 @@ function showSlides(n) {
   slides[currentIndex + 1].style.display = 'block';
 
   const stockNames = ['AAPL', 'GOOGL', 'MSFT', 'AMZN']; // Example stock names
-  document.getElementById('slide1').textContent = stockNames[currentIndex / 2]+ ':', getCurrentStockPrice(stockNames[currentIndex / 2]);
+  document.getElementById('slide1').textContent = stockNames[currentIndex / 2]+ ':',  getStockPriceYesterday(stockNames[currentIndex / 2]);
   document.getElementById('slide2').textContent = stockNames[currentIndex / 2 + 1];
   document.getElementById('slide3').textContent = stockNames[(currentIndex / 2 + 2) % stockNames.length];
   document.getElementById('slide4').textContent = stockNames[(currentIndex / 2 + 3) % stockNames.length];
