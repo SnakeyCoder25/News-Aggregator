@@ -35,7 +35,19 @@ function getNews() {
     .then(a => a.json())
     .then(response => {
         for(var i=0; i<response.articles.length; i++){
-            document.getElementById("output").innerHTML += "<div style='padding-top: 20px;'> <img style='float:left; width:150px;' scr='"+response.articles[i].urlToImage+"'><h1>"+response.articles[i].title+"</h1>"+response.articles[i].source.name+"<br>"+response.articles[i].description+" <a href='"+response.articles[i].url+"target='_blank'>"+response.articles[i].url+"</a></div>";
+            document.getElementById("output").innerHTML += "<div style='padding-top: 20px; background-color: lightblue;'> <img style='float:left; width:150px;' src='" +
+            response.articles[i].urlToImage +
+            "'><h1>" +
+            response.articles[i].title +
+            "</h1>" +
+            response.articles[i].source.name +
+            "<br>" +
+            response.articles[i].description +
+            " <a href='" +
+            response.articles[i].url +
+            "' target='_blank'>" +
+            response.articles[i].url +
+            "</a></div>";
         }
     })
   
