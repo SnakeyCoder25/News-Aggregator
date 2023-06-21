@@ -1,9 +1,29 @@
 function getNews() {
     var searchWorkd = document.getElementById("msg").value;
+
+
+    const currentDate = new Date();
+
+    // Subtract two days from the current date
+    currentDate.setDate(currentDate.getDate() - 2);
     
+    // Get the month from the updated date (0-11, where 0 represents January)
+    const month = currentDate.getMonth();
+    
+    // Add 1 to the month since JavaScript months are zero-based (0-11)
+    const formattedMonth = (month + 1).toString().padStart(2, '0');
+    
+    // Get the day from the updated date
+    const day = currentDate.getDate();
+    
+    // Convert the day to a two-digit string format
+    const formattedDay = day.toString().padStart(2, '0');
+
+
+
    var url = 'https://newsapi.org/v2/everything?' +
       'q='+ searchWorkd + '&' +
-      'from=2023-05-20&' +
+      'from=2023-'+ formattedMonth +'-'+ formattedDay +'&' +
       'sortBy=popularity&' +
       'language=en&' +
       'searchIn=title&' +
