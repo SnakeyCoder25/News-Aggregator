@@ -5,9 +5,13 @@
     <title>StockWave - Home</title>
     <link rel="icon" type="image/x-icon" href="img/icon.png">
     <link rel="stylesheet" href="css/menubar.css">
+    <link rel="javascript" href="js/menubar.js">
 </head>
 
 <body>
+  <!--Navbar-->
+  <div id="menubar">
+    <span><img src="img/logo.png" id="logo"></span>
     <!--Hamburger Menu-->
     <nav role="navigation">
         <div id="menuToggle">
@@ -20,9 +24,51 @@
             <a href="news.html"><li>News</li></a>
             <a href="browsestocks.html"><li>Browse Stocks</li></a>
             <a href="addstocks.html"><li>Add Stocks</li></a>
+            <a href="help.html"><li>Help</li></a>
           </ul>
         </div>
       </nav>
+    <!-- Stock Ticker Tape -->
+    <div class="tradingview-widget-container">
+      <div class="tradingview-widget-container__widget"></div>
+      <div class="tradingview-widget-copyright"><a href="" rel="noopener nofollow" target="_blank"><span class="blue-text"></span></a></div>
+      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+    {
+      "symbols"; [
+      {
+        "description": "",
+            "proName": "FX_IDC:USDAUD"
+        },
+        {
+          "description": "",
+        "proName": "AAPL"
+        },
+        {
+        "description": "",
+        "proName": "NASDAQ:TSLA"
+      },
+      {
+        "description": "",
+        "proName": "FX_IDC:USDEUR"
+      },
+      {
+          "description": "",
+          "proName": "NASDAQ:META"
+      },
+        {
+          "description": "",
+          "proName": "NASDAQ:GOOGL"
+      }
+    ],
+    "showSymbolLogo"; true,
+    "colorTheme"; "light",
+    "isTransparent"; false,
+    "displayMode"; "compact",
+    "locale"; "en"
+    }
+      </script>
+    </div>
+  </div>
 </body>
 
 </html>
