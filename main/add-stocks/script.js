@@ -153,25 +153,32 @@ function showSlides(n) {
 
 
 */
-function getStockPriceYesterday(stockSymbol, callback) {
-  const apiKey = 'mDRKtQCuCHeM5slDzrBpg9CUfuUJ8ZMs';
-  const today = new Date();
-  const yesterday = new Date(today);
+function getStockPriceYesterday(stockSymbol) {
+  var apiKey = 'mDRKtQCuCHeM5slDzrBpg9CUfuUJ8ZMs';
+  var today = new Date();
+  var yesterday = new Date(today);
   yesterday.setDate(today.getDate() - 1);
-  const dateStr = yesterday.toISOString().split('T')[0];
+  var dateStr = yesterday.toISOString().split('T')[0];
 
-  const url = `https://api.polygon.io/v2/aggs/ticker/${stockSymbol}/prev?unadjusted=true&apiKey=${apiKey}&endDate=${dateStr}&limit=1`;
+  var url = `https://api.polygon.io/v2/aggs/ticker/${stockSymbol}/prev?unadjusted=true&apiKey=${apiKey}&endDate=${dateStr}&limit=1`;
 
   fetch(url)
     .then(response => response.json())
     .then(data => {
-      const stockPriceYesterday = data.results[0].c;
-      callback(stockPriceYesterday);
+      stockPriceYesterday = data.results[0].c;
+      console.log(stockPriceYesterday);
+      //callback(stockPriceYesterday);
     })
-    .catch(error => {
-      console.log('Error fetching stock price:', error);
-      callback(null);
-    });
+
+    console.log(stockPriceYesterday);
+    return stockPriceYesterday;
+    
+    // .catch(error => {
+    //   console.log('Error fetching stock price:', error);
+    //   callback(null);
+    // });
+
+    
 }
 
 let slideIndex = 0;
@@ -192,28 +199,45 @@ function showSlides(n) {
     slides[i].style.display = 'none';
   }
 
-  const currentIndex = slideIndex % Math.floor(slides.length / 2) * 2;
+  var currentIndex = slideIndex % Math.floor(slides.length / 2) * 2;
 
   slides[currentIndex].style.display = 'block';
   slides[currentIndex + 1].style.display = 'block';
 
-  const stockNames = ['AAPL', 'GOOGL', 'MSFT', 'AMZN']; // Example stock names
+  var stockNames = ['AAPL', 'GOOGL', 'MSFT', 'AMZN']; // Example stock names
 
-  getStockPriceYesterday(stockNames[currentIndex / 2], function(stockPrice1) {
-    document.getElementById('slide1').textContent = stockNames[currentIndex / 2] + ': ' + stockPrice1;
-  });
+  console.log(stockNames[0]);
 
-  getStockPriceYesterday(stockNames[currentIndex / 2 + 1], function(stockPrice2) {
+  stockPrice1 = getStockPriceYesterday(stockNames[0]);
+  document.getElementById('slide1').textContent = stockNames[0] + ': ' + stockPrice1;
+
+  console.log(stockPrice1);
+
+  stockPrice2 = getStockPriceYesterday(stockNames[1]);
+  document.getElementById('slide1').textContent = stockNames[1] + ': ' + stockPrice2;
+
+  stockPrice3 = getStockPriceYesterday(stockNames[2]);
+  document.getElementById('slide1').textContent = stockNames[2] + ': ' + stockPrice3;
+
+
+  /*
+
+  // getStockPriceYesterday(stockNames[currentIndex / 2], function(stockPrice1) {
+  //  document.getElementById('slide1').textContent = stockNames[currentIndex / 2] + ': ' + stockPrice1;
+ // });
+
+  getStockPriceYesterday(stockNames[currentIndex / 2 + 1]) {
     document.getElementById('slide2').textContent = stockNames[currentIndex / 2 + 1] + ': ' + stockPrice2;
   });
 
-  getStockPriceYesterday(stockNames[(currentIndex / 2 + 2) % stockNames.length], function(stockPrice3) {
+  getStockPriceYesterday(stockNames[(currentIndex / 2 + 2) % stockNames.length]){
     document.getElementById('slide3').textContent = stockNames[(currentIndex / 2 + 2) % stockNames.length] + ': ' + stockPrice3;
   });
 
-  getStockPriceYesterday(stockNames[(currentIndex / 2 + 3) % stockNames.length], function(stockPrice4) {
+  getStockPriceYesterday(stockNames[(currentIndex / 2 + 3) % stockNames.length]) {
     document.getElementById('slide4').textContent = stockNames[(currentIndex / 2 + 3) % stockNames.length] + ': ' + stockPrice4;
   });
+  */
 }
 
 // Example usage:

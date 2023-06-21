@@ -35,7 +35,7 @@ function getNews() {
     .then(a => a.json())
     .then(response => {
         for(var i=0; i<response.articles.length; i++){
-            document.getElementById("output").innerHTML += "<div style='padding-top: 20px; background-color: lightblue;'> <img style='float:left; width:150px;' src='" +
+            document.getElementById("output").innerHTML += "<div style='padding-top: 20px; background-color: #E6F1F6; border: 1px solid #A3C8D9; border-radius: 5px; overflow: hidden;'> <img style='float:left; width:150px;' src='" +
             response.articles[i].urlToImage +
             "'><h1>" +
             response.articles[i].title +
