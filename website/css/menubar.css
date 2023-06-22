@@ -1,8 +1,7 @@
-/* Menu Bar */
-#navbar {
-  overflow: hidden;
+/*Menu Bar*/
+#menubar {
+  overflow: -moz-hidden-unscrollable;
   background-color: #ffffff;
-  box-shadow: 10px 10px 10px #000000;
 }
 
 .sticky {
@@ -11,12 +10,17 @@
   width: 100%;
 }
 
-img {
+#navLogo
+{
   width: 200px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  top: 5px;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  position: fixed;
+}
+
+#tickerTape
+{
+  position: fixed;
 }
 
 /*Hamburger Menu Styling*/
@@ -26,11 +30,10 @@ img {
    position: relative;
    top: 0px;
    left: 0px;
-   
    z-index: 1;
-   
    -webkit-user-select: none;
    user-select: none;
+   position: fixed;
  }
  
  #menuToggle a
