@@ -1,0 +1,39 @@
+h1{
+    text-align: center;
+}
+
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .arrow {
+    display: inline-block;
+    cursor: pointer;
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    border-radius: 50%;
+    font-size: 40px;
+    background-color: lightgray;
+    margin-bottom: 20px;
+  }
+  
+  .box {
+    display: inline-block;
+    width: 350px;
+    height: auto;
+    margin: 0 10px;
+    padding: 1px;
+  }
+  
+  .tradingview-widget-container {
+    display: inline-block;
+    width: 100%;
+    height: auto;
+  }
+  
