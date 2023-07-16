@@ -1,5 +1,5 @@
 var symbols = ["NVDA", "AAPL", "GOOGL", "TESLA"]; // Stock symbols for the widgets
-
+//This needs
 var leftIndex = 0;
 var rightIndex = 1;
 
