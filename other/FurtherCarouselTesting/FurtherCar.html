@@ -1,30 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>TradingView Widget Example</title>
+    <title>TradingView Widget Example</title>
 </head>
 <body>
-  <button onclick="">Show Google Stock</button>
+    <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+    </div>
 
-
-<!-- TradingView Widget BEGIN -->
-<div class="tradingview-widget-container">
-    <div class="tradingview-widget-container__widget"></div>
-    <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
-    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-    {
-    "symbol": "NASDAQ:GOOGL",
-    "width": 350,
-    "height": 220,
-    "locale": "en",
-    "dateRange": "12M",
-    "colorTheme": "light",
-    "isTransparent": false,
-    "autosize": false,
-    "largeChartUrl": ""
-  }
+    <script type="text/javascript">
+        var mySymbol = "APL"; // Replace with desired stock symbol, e.g., "GOOGL", "GOOG"
+        
+        const script = document.createElement('script');
+        script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js';
+        script.async = true;
+        script.innerHTML = JSON.stringify({
+            "symbol": mySymbol,
+            "width": 350,
+            "colorTheme": "light",
+            "isTransparent": false,
+            "locale": "en"
+        });
+        
+        document.querySelector('.tradingview-widget-container__widget').appendChild(script);
     </script>
-  </div>
-  <!-- TradingView Widget END -->
 </body>
 </html>
