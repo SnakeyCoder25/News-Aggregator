@@ -1,6 +1,24 @@
 
 
 /* Start of Carousel */
+
+
+/* STickky code */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+/*end  */
 .container {
     display: flex;
     align-items: center;

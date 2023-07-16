@@ -8,6 +8,7 @@ let x3 = document.getElementById("msg3").value;
 localStorage.setItem("3", x3);
 let x4 = document.getElementById("msg4").value;
 localStorage.setItem("4", x4);
+location.reload();
 }
 //localStorage.getElementById = document.getElementById("One");
 
@@ -15,7 +16,7 @@ localStorage.setItem("4", x4);
 
   // Start
 
-var symbols = ["NVDA", "AAPL", "GOOGL", "TSLA"]; // Stock symbols for the widgets
+var symbols = [String(localStorage.getItem("1")), String(localStorage.getItem("2")), String(localStorage.getItem("3")), String(localStorage.getItem("4"))]; // Stock symbols for the widgets
 //This needs
 var leftIndex = 0;
 var rightIndex = 1;
@@ -63,5 +64,11 @@ function rightFunction() {
 }
 // END
   
-  
-  
+  // SearchStock js
+
+  loadWidget("AAPL", "widget3"); //Intial load example
+function SearchStockUpdate(){
+
+  let searchSymbol = document.getElementById("SearchStockInput").value;
+  loadWidget(searchSymbol, "widget3");
+}
