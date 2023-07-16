@@ -8,6 +8,17 @@ let x3 = document.getElementById("msg3").value;
 localStorage.setItem("3", x3);
 let x4 = document.getElementById("msg4").value;
 localStorage.setItem("4", x4);
+
+let N1 = document.getElementById("msg1N").value;
+localStorage.setItem("1N", N1);
+let N2 = document.getElementById("msg2N").value;
+localStorage.setItem("2N", N2);
+let N3 = document.getElementById("msg3N").value;
+localStorage.setItem("3N", N3);
+let N4 = document.getElementById("msg4N").value;
+localStorage.setItem("4N", N4);
+
+
 location.reload();
 }
 //localStorage.getElementById = document.getElementById("One");
@@ -17,7 +28,7 @@ location.reload();
   // Start
 
 var symbols = [String(localStorage.getItem("1")), String(localStorage.getItem("2")), String(localStorage.getItem("3")), String(localStorage.getItem("4"))]; // Stock symbols for the widgets
-//This needs
+
 var leftIndex = 0;
 var rightIndex = 1;
 
