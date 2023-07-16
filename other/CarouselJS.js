@@ -1,4 +1,4 @@
-var symbols = ["NVDA", "AAPL", "GOOGL", "TESLA"]; // Stock symbols for the widgets
+var symbols = ["NVDA", "AAPL", "GOOGL", "TSLA"]; // Stock symbols for the widgets
 //This needs
 var leftIndex = 0;
 var rightIndex = 1;
@@ -26,8 +26,7 @@ function loadWidget(symbol, widgetId) {
 }
 
 // Initial widget loading
-loadWidget(symbols[leftIndex], "widget1");
-loadWidget(symbols[rightIndex], "widget2");
+updateWidgets();
 
 function updateWidgets() {
     loadWidget(symbols[leftIndex], "widget1");
