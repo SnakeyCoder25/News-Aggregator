@@ -1,42 +1,47 @@
-function changeSymbol(symbol) {
-    // Find the script tag with the TradingView widget configuration
-    var scriptTag = document.querySelector('script[src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js"]');
-  
-    // Check if the script tag exists
-    if (scriptTag) {
-      // Get the widget configuration object from the script's text content
-      var config = JSON.parse(scriptTag.textContent);
-  
-      // Update the symbol property with the new stock symbol
-      config.symbol = symbol;
-  
-      // Remove the existing TradingView widget
-      var container = document.querySelector('.tradingview-widget-container');
-      container.innerHTML = '';
-  
-      // Create a new script element
-      var newScript = document.createElement('script');
-      newScript.type = 'text/javascript';
-      newScript.async = true;
-      newScript.src = 'https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js';
-      newScript.textContent = JSON.stringify(config);
-  
-      // Append the new script to the container
-      container.appendChild(newScript);
+var symbols = ["NVDA", "AAPL", "GOOGL", "TESLA"]; // Stock symbols for the widgets
+
+var leftIndex = 0;
+var rightIndex = 1;
+
+function loadWidget(symbol, widgetId) {
+    const widgetContainer = document.getElementById(widgetId);
+
+    // Remove the existing widget if any
+    while (widgetContainer.firstChild) {
+        widgetContainer.firstChild.remove();
     }
-  }
 
+    const script = document.createElement('script');
+    script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js';
+    script.async = true;
+    script.innerHTML = JSON.stringify({
+        "symbol": symbol,
+        "width": 350,
+        "colorTheme": "light",
+        "isTransparent": false,
+        "locale": "en"
+    });
 
+    widgetContainer.appendChild(script);
+}
+
+// Initial widget loading
+loadWidget(symbols[leftIndex], "widget1");
+loadWidget(symbols[rightIndex], "widget2");
+
+function updateWidgets() {
+    loadWidget(symbols[leftIndex], "widget1");
+    loadWidget(symbols[rightIndex], "widget2");
+}
 
 function leftFunction() {
-    // Function triggered by the left arrow
-    console.log("Left arrow clicked");
-    // Add your custom logic here
-  }
+    leftIndex = (leftIndex - 1 + symbols.length) % symbols.length;
+    rightIndex = (rightIndex - 1 + symbols.length) % symbols.length;
+    updateWidgets();
+}
 
-  function rightFunction() {
-    // Function triggered by the right arrow
-    console.log("Right arrow clicked");
-    changeSymbol("GOOGL")
-    
-  }
+function rightFunction() {
+    leftIndex = (leftIndex + 1) % symbols.length;
+    rightIndex = (rightIndex + 1) % symbols.length;
+    updateWidgets();
+}

@@ -20,7 +20,7 @@ h1{
     border-radius: 50%;
     font-size: 40px;
     background-color: lightgray;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
   }
   
   .box {
@@ -29,6 +29,7 @@ h1{
     height: auto;
     margin: 0 10px;
     padding: 1px;
+  
   }
   
   .tradingview-widget-container {
