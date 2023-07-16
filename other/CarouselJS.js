@@ -1,3 +1,5 @@
+// Start
+
 var symbols = ["NVDA", "AAPL", "GOOGL", "TSLA"]; // Stock symbols for the widgets
 //This needs
 var leftIndex = 0;
@@ -44,3 +46,4 @@ function rightFunction() {
     rightIndex = (rightIndex + 1) % symbols.length;
     updateWidgets();
 }
+// END
