@@ -1,7 +1,25 @@
 
+// Auto Fills in the text field with what you already have.
+document.getElementById("msg1").value = localStorage.getItem("1");
+document.getElementById("msg2").value = localStorage.getItem("2");
+document.getElementById("msg3").value = localStorage.getItem("3");
+document.getElementById("msg4").value = localStorage.getItem("4");
+
+document.getElementById("msg1N").value = localStorage.getItem("1N");
+document.getElementById("msg2N").value = localStorage.getItem("2N");
+document.getElementById("msg3N").value = localStorage.getItem("3N");
+document.getElementById("msg4N").value = localStorage.getItem("4N");
+
+
+
+
+
+
+
+
 function updateLocaldata() {
-let x1 = document.getElementById("msg1").value;
-localStorage.setItem("1", x1);
+let x1 = document.getElementById("msg1").value; //Gets value from text slot
+localStorage.setItem("1", x1); // Sets value to local storage postion labeled as '1'
 let x2 = document.getElementById("msg2").value;
 localStorage.setItem("2", x2);
 let x3 = document.getElementById("msg3").value;
@@ -17,8 +35,6 @@ let N3 = document.getElementById("msg3N").value;
 localStorage.setItem("3N", N3);
 let N4 = document.getElementById("msg4N").value;
 localStorage.setItem("4N", N4);
-
-
 location.reload();
 }
 //localStorage.getElementById = document.getElementById("One");
