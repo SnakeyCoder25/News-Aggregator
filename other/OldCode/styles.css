@@ -1,0 +1,10 @@
+.fav-stock-header {
+    text-align: center;
+    margin-top: 60px;
+}
+
+.errors {
+    text-align: center;
+    color: red;
+    font-size: large;
+}

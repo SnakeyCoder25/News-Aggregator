@@ -1,145 +1,101 @@
 
+// Auto Fills in the text field with what you already have.
+document.getElementById("msg1").value = localStorage.getItem("1");
+document.getElementById("msg2").value = localStorage.getItem("2");
+document.getElementById("msg3").value = localStorage.getItem("3");
+document.getElementById("msg4").value = localStorage.getItem("4");
+
+document.getElementById("msg1N").value = localStorage.getItem("1N");
+document.getElementById("msg2N").value = localStorage.getItem("2N");
+document.getElementById("msg3N").value = localStorage.getItem("3N");
+document.getElementById("msg4N").value = localStorage.getItem("4N");
+
+
+
+
+
+
+
+
 function updateLocaldata() {
-let x1 = document.getElementById("msg1").value;
-localStorage.setItem("1", x1);
+let x1 = document.getElementById("msg1").value; //Gets value from text slot
+localStorage.setItem("1", x1); // Sets value to local storage postion labeled as '1'
 let x2 = document.getElementById("msg2").value;
 localStorage.setItem("2", x2);
 let x3 = document.getElementById("msg3").value;
 localStorage.setItem("3", x3);
 let x4 = document.getElementById("msg4").value;
 localStorage.setItem("4", x4);
+
+let N1 = document.getElementById("msg1N").value;
+localStorage.setItem("1N", N1);
+let N2 = document.getElementById("msg2N").value;
+localStorage.setItem("2N", N2);
+let N3 = document.getElementById("msg3N").value;
+localStorage.setItem("3N", N3);
+let N4 = document.getElementById("msg4N").value;
+localStorage.setItem("4N", N4);
+location.reload();
 }
 //localStorage.getElementById = document.getElementById("One");
 
-//GPT CODE
 
-/* 
-async function getCurrentStockPrice(symbol) {
-    const apiKey = 'mDRKtQCuCHeM5slDzrBpg9CUfuUJ8ZMs'; // Replace with your Polygon.io API key
-    const url = `https://api.polygon.io/v1/last/stocks/${symbol}?apiKey=${apiKey}`;
-  
-    try {
-      const response = await fetch(url);
-      const data = await response.json();
-      console.log(data); // Log the response for troubleshooting
-      const currentPrice = data.last.price;
-  
-      return currentPrice;
-    } catch (error) {
-      console.log('Error:', error);
+
+  // Start
+
+var symbols = [String(localStorage.getItem("1")), String(localStorage.getItem("2")), String(localStorage.getItem("3")), String(localStorage.getItem("4"))]; // Stock symbols for the widgets
+
+var leftIndex = 0;
+var rightIndex = 1;
+
+function loadWidget(symbol, widgetId) {
+    const widgetContainer = document.getElementById(widgetId);
+
+    // Remove the existing widget if any
+    while (widgetContainer.firstChild) {
+        widgetContainer.firstChild.remove();
     }
-  }
-  
-  
-  let slideIndex = 0;
-  showSlides(slideIndex);
-  
-  function changeSlide(n) {
-    slideIndex += n;
-    showSlides(slideIndex);
-  }
-  
-  async function showSlides(n) {
-    const slides = document.getElementsByClassName('slide');
-    if (n >= slides.length) {
-      slideIndex = 0;
-    } else if (n < 0) {
-      slideIndex = slides.length - 2;
-    }
-    for (let i = 0; i < slides.length; i++) {
-      slides[i].style.display = 'none';
-    }
-  
-    const currentIndex = slideIndex % Math.ceil(slides.length / 2) * 2;
-  
-    slides[currentIndex].style.display = 'block';
-    slides[currentIndex + 1].style.display = 'block';
-  
-    const stockNames = ['AAPL', 'GOOGL', 'MSFT', 'AMZN']; // Example stock names
-  
-    const pricePromises = stockNames.map(symbol => getCurrentStockPrice(symbol));
-    const prices = await Promise.all(pricePromises);
-  
-    document.getElementById('slide1').textContent = `${stockNames[0]}: ${prices[0]}`;
-    document.getElementById('slide2').textContent = `${stockNames[1]}: ${prices[1]}`;
-    document.getElementById('slide3').textContent = `${stockNames[2]}: ${prices[2]}`;
-    document.getElementById('slide4').textContent = `${stockNames[3]}: ${prices[3]}`;
-  }
-  
-  
-*/
-/*
-function getprice(stockletters){
-  const fetch = require('node-fetch');
 
-// Replace 'YOUR_API_KEY' with your actual API key from Polygon.io
-const apiKey = 'mDRKtQCuCHeM5slDzrBpg9CUfuUJ8ZMs';
+    const script = document.createElement('script');
+    script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js';
+    script.async = true;
+    script.innerHTML = JSON.stringify({
+        "symbol": symbol,
+        "width": 350,
+        "colorTheme": "light",
+        "isTransparent": false,
+        "locale": "en"
+    });
 
-// Define the symbol for AAPL (Apple Inc.)
-const symbol = stockletters;
-
-// Define the API endpoint for the last trade quote
-const endpoint = `https://api.polygon.io/v2/last/trade/${symbol}?apiKey=${apiKey}`;
-
-// Make the API request
-fetch(endpoint)
-  .then(response => response.json())
-  .then(data => {
-    // Extract the current stock price
-    const currentPrice = data.last.price;
-    return currentPrice;
-  })
-  .catch(error => {
-    console.error('Error:', error);
-  });
-}
-*/
-
-function getCurrentStockPrice(symbol) {
-  const apiKey = 'mDRKtQCuCHeM5slDzrBpg9CUfuUJ8ZMs';
-  const endpoint = `https://api.polygon.io/v2/last/trade/${symbol}?apiKey=${apiKey}`;
-
-  return fetch(endpoint)
-    .then(response => response.json())
-    .then(data => `The current stock price of ${symbol} is $${data.last.price}`)
-    .catch(error => { throw error; });
+    widgetContainer.appendChild(script);
 }
 
-let slideIndex = 0;
-showSlides(slideIndex);
+// Initial widget loading
+updateWidgets();
 
-function changeSlide(n) {
-  slideIndex += n;
-  showSlides(slideIndex);
+function updateWidgets() {
+    loadWidget(symbols[leftIndex], "widget1");
+    loadWidget(symbols[rightIndex], "widget2");
 }
 
-function showSlides(n) {
-  const slides = document.getElementsByClassName('slide');
-  if (n >= slides.length) {
-    slideIndex = 0;
-  } else if (n < 0) {
-    slideIndex = slides.length - 2;
-  }
-  for (let i = 0; i < slides.length; i++) {
-    slides[i].style.display = 'none';
-  }
-
-  const currentIndex = slideIndex % Math.floor(slides.length / 2) * 2;
-
-  slides[currentIndex].style.display = 'block';
-  slides[currentIndex + 1].style.display = 'block';
-
-  const stockNames = ['AAPL', 'GOOGL', 'MSFT', 'AMZN']; // Example stock names
-  document.getElementById('slide1').textContent = stockNames[currentIndex / 2]+ ':', getCurrentStockPrice(stockNames[currentIndex / 2]);
-  document.getElementById('slide2').textContent = stockNames[currentIndex / 2 + 1];
-  document.getElementById('slide3').textContent = stockNames[(currentIndex / 2 + 2) % stockNames.length];
-  document.getElementById('slide4').textContent = stockNames[(currentIndex / 2 + 3) % stockNames.length];
+function leftFunction() {
+    leftIndex = (leftIndex - 1 + symbols.length) % symbols.length;
+    rightIndex = (rightIndex - 1 + symbols.length) % symbols.length;
+    updateWidgets();
 }
 
+function rightFunction() {
+    leftIndex = (leftIndex + 1) % symbols.length;
+    rightIndex = (rightIndex + 1) % symbols.length;
+    updateWidgets();
+}
+// END
+  
+  // SearchStock js
 
+  loadWidget("AAPL", "widget3"); //Intial load example
+function SearchStockUpdate(){
 
-
-  
-  
-  
-  
+  let searchSymbol = document.getElementById("SearchStockInput").value;
+  loadWidget(searchSymbol, "widget3");
+}
