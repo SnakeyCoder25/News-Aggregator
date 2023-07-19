@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Hamburger Menu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="navbar-logo">
+            <img src="logo.png" alt="Logo">
+            <span>Logo</span>
+        </div>
+        <button class="navbar-toggle" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="navbar-menu" id="navbarMenu">
+            <a href="#" class="navbar-menu-item">Home</a>
+            <a href="#" class="navbar-menu-item">About</a>
+            <a href="#" class="navbar-menu-item">Services</a>
+            <a href="#" class="navbar-menu-item">Contact</a>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            var navbarMenu = document.getElementById("navbarMenu");
+            navbarMenu.classList.toggle("open");
+        }
+    </script>
+</body>
+
+</html>
