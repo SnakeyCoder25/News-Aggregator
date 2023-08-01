@@ -14,18 +14,20 @@
     left: 0;
     top: 0;
     background-color: rgb(173, 216, 230); /* Black fallback color */
-
+    
     overflow-x: hidden; /* Disable horizontal scroll */
     transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
   }
-  
+
+
   /* Position the content inside the overlay */
   .overlay-content {
     position: relative;
     top: 25%; /* 25% from the top */
-    width: 100%; /* 100% width */
-    text-align: center; /* Centered text/links */
+    width: 100%; 
+    
     margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+    padding-left: 25%; /* to move the text to the right*/
   }
   
   /* The navigation links inside the overlay */
@@ -74,4 +76,10 @@ table {
     background-color: rgba(173, 216, 230, 0.63);
 
     padding: 10px;
+}
+
+/* Sizing the icons */
+.icon{
+  font-size: 100px;
+  color: lightcoral;
 }
