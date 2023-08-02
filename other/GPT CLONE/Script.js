@@ -1,4 +1,4 @@
-document.getElementById("questionForm").addEventListener("submit", function (event) {
+document.getElementById("questionForm").addEventListener("submit", function(event) {
     event.preventDefault();
     const responseContainer = document.getElementById("responseContainer");
     const wiseFunnyResponses = [
