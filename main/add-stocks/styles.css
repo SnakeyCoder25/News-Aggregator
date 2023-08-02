@@ -1,0 +1,201 @@
+.tittle{
+    font-size: 30px;
+    text-align: center;
+}
+
+
+
+.input{
+
+    display: flex;
+    justify-content: center;
+
+  
+}
+
+.UpdateButton{
+    display: block;
+    margin: 0 auto;
+}
+
+
+/* GPT */
+.gallery {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .gallery-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 200%;
+  }
+  
+  .slide {
+    flex: 0 0 50%;
+    text-align: center;
+    position: relative;
+    background-color: #f2f2f2;
+    padding: 20px;
+    box-sizing: border-box; /* Add this property */
+  }
+  
+  .placeholder {
+    height: 200px; /* Adjust the height as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    color: #555;
+  }
+  
+  .prev,
+  .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 25px;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  .prev {
+    left: 10px;
+  }
+  
+  .next {
+    right: 10px;
+  }
+  
+
+
+  
+
+/* Start of Carousel */
+/* STickky code */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+/*end  */
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.arrow {
+  display: inline-block;
+  cursor: pointer;
+  width: 80px;
+  height: 80px;
+  line-height: 80px;
+  border-radius: 50%;
+  font-size: 40px;
+  background-color: lightgray;
+  margin-bottom: 0px;
+}
+
+.box {
+  display: inline-block;
+  width: 350px;
+  height: auto;
+  margin: 0 10px;
+  padding: 1px;
+
+}
+
+.tradingview-widget-container {
+  display: inline-block;
+  width: 100%;
+  height: auto;
+}
+/* end */
+
+#widget3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+background-color: lightcoral;
+padding: 10px;
+}
+
+
+
+
+/* GPT CSS  */
+
+/* Styles for table */
+
+
+table tr td {
+  padding: 10px;
+
+  
+}
+
+/* Styles for buttons */
+button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Style for input fields */
+input[type="text"] {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Style for title */
+.tittle {
+ 
+  font-size: 24px;
+  font-weight: bold;
+}
+
+
+
+/* Style for the main body */
+body {
+  font-family: "San Francisco", Arial, sans-serif;
+}
+
+
+
+
+
+/* Style for search button */
+button {
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
