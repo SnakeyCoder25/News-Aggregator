@@ -44,7 +44,9 @@ function getNews() {
       const output = document.getElementById("output");
       output.innerHTML = ""; // Clear previous news articles
 
-      articles.forEach((article) => {
+      let alternateColumn = false; // To alternate between columns
+
+      articles.forEach((article, index) => {
         const articleElement = document.createElement("div");
         articleElement.classList.add("article-container");
 
@@ -79,7 +81,16 @@ function getNews() {
         contentElement.appendChild(linkElement);
 
         articleElement.appendChild(contentElement);
+
+        // Alternate the column for each article
+        if (alternateColumn) {
+          articleElement.style.float = "right";
+        } else {
+          articleElement.style.float = "left";
+        }
+
         output.appendChild(articleElement);
+        alternateColumn = !alternateColumn;
       });
     });
 }
