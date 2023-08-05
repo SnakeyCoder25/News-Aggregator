@@ -24,7 +24,7 @@
   .overlay-content {
     position: relative;
     top: 25%; /* 25% from the top */
-    width: 100%; 
+    width: 90%; /*Moves the table towards to left*/
     
     margin-top: 0px; /* 30px top margin to avoid conflict with the close button on smaller screens */
     padding-left: 2%; /* to move the text to the right*/
@@ -49,7 +49,7 @@
     color: f1f1f1
   }
   
-  /* Position the close button (top right corner) */
+  /* Position the close button (top left corner) */
   .overlay .closebtn {
     position: absolute;
     top: 5px;
@@ -71,21 +71,20 @@
 
 table {
     background-color: rgba(173, 216, 230, 0.63);
-
     padding: 10px;
+
+    width: 100%;
 
     /* Tempborder: solid; */
 }
-
-#logo{
-  text-align: center; 
-  /* Center Aligns the logo */
+td{
+ 
+  text-align: center;
+  
+}
+#Link{
+  width: 60%;
+  text-align: left;
 }
 
-td.image-cell {
-  padding: 0;
-}
 
-td.image-cell {
-  padding: 0;
-}
