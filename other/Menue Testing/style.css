@@ -68,18 +68,17 @@
   }
 
 
-td {
-    text-align: center;
-  }
 
 table {
     background-color: rgba(173, 216, 230, 0.63);
 
     padding: 10px;
+
+    /* Tempborder: solid; */
 }
 
-/* Sizing the icons */
-.icon{
-  font-size: 400%;
-  color: lightcoral;
+#logo{
+  text-align: center; 
+  /* Center Aligns the logo */
 }
+
