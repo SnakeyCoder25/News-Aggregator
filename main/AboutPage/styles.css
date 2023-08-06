@@ -90,75 +90,47 @@ td{
 }
 /* End of Menu */
 
-.StartButton {
-  padding: 8px 16px;
-  font-size: 40px;
-  background-color: #0366d6;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  text-decoration: none; /*Removes underline*/
-
-/* Centering the button */
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); 
-}
-
-.StartButton:hover {
-  background-color: #004ba0;
-}
-
 h1{
-  text-align: center;
-  font-size: 60px;
-  color:#333 ;
-  position: relative;
-  top: 10%;
-}
+    text-align: center;
+    font-size: 60px;
+    color:#333 ;
+    position: relative;
+    top: 10%;
+  }
 
-/* Modified W3schools code for FAQ */
-.accordion {
-  background-color: #eee;
-  color: #333;
-  cursor: pointer;
-  padding: 18px;
-  width:60%;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 30px;
-  transition: 0.4s;
-  border: solid #333;
-
-  /* Center the FAQ */
-  position: relative;
-  left: 20%;
-}
-
-.active, .accordion:hover {
-  background-color: #ccc; 
-
-}
-
-.panel {
-  padding: 18px;
-  display: none;
-  font-size: 30px;
-
-  background-color: white;
-  overflow: hidden;
-  width: 60%;
-  position: relative;
-  left: 20%;
-}
-
-/* Creating a black box to seperate elements */
+  /* Creating a black box to seperate elements */
 .box{
-  width: 100%;
-  height: 5%;
-  background-color: #333;
-  margin-top: 3%;
-}
+    width: 100%;
+    height: 5%;
+    background-color: #333;
+    margin-top: 3%;
+  }
+
+  /* Our Team --> styling the table  */
+
+  .OurTeam{
+    padding: 10px;
+    padding-left: 5%;
+    padding-right: 5%; 
+    border:  solid 10px #333;
+    border-radius: 10px;
+    width: 50%; /* Ensures that the boxes remain equal in size*/
+    
+  }
+
+  .title{
+    font-size: 50px;
+    color: #333;
+    border-bottom: solid #333;
+    padding-bottom: 1px;
+    
+  }
+  .text{
+    padding-top: 10px;
+    font-size: 20px;
+    
+  }
+
+  .highlight{
+    color:#0366d6 ;
+  }

@@ -1,10 +1,9 @@
 <html>
 <head>
+
 <link rel="stylesheet" href="styles.css">
-
-
 </head>
-</head>
+
 <body>
     <!-- The overlay -->
     <div id="myNav" class="overlay">
@@ -59,84 +58,39 @@
         </tr>
       </table>
       <!-- End of Menu -->
+    <h1>About Us</h1>
 
     <br>
-<p class="tittle">Add Stock</p> 
-
-<br>
-<h3 style="text-align: center";>Portfolio</h3>
-
-<div class="input">
-<table>
-    <tr>
-      <td> </td>
-      <td>Stock Symbol</td>
-      <td>Stock Search Term</td>
-    </tr>
-    <tr>
-        <td><p id="One">Stock 1: </p></td>
-        <td><input type="text" id="msg1" ></td>
-        <td><input type="text" id="msg1N" ></td>
-    </tr>
-    <tr>
-        <td><p id="Two">Stock 2: </p></td>
-        <td><input type="text" id="msg2" ></td>
-        <td><input type="text" id="msg2N" ></td>
-    </tr>
-    <tr>
-        <td><p id="Three">Stock 3: </p></td>
-        <td><input type="text" id="msg3" ></td>
-        <td><input type="text" id="msg3N" ></td>
-    </tr>
-    <tr>
-        <td><p id="Four">Stock 4: </p></td>
-        <td><input type="text" id="msg4" ></td>
-        <td><input type="text" id="msg4N" ></td>
-    </tr>
-
-</table>
-
-
-</div>
-<br>
-<div style="text-align: center";>
-<button id="UpdateButton" onclick="updateLocaldata()">Update</button>
-</div>
-
-<br>
-<!-- Quick Stock Search -->
-<div class="input">
-<table>
-  <tr>
-    <td><p >Search Stock: </p></td>
-    <td><input type="text" id="SearchStockInput" ></td>
-    <td><button onclick="SearchStockUpdate()">GO</button>
-</tr>
-</table>
-</div>
-<br>
-<div  id="widget3" class="tradingview-widget-container__widget"></div>
-
-
-
-
-
-<br>
-
-<!-- Carosell Thing -->
-<div class="container">
-    <div class="arrow" onclick="leftFunction()">&#9664;</div>
-    <div class="box">
-        <div id="widget1" class="tradingview-widget-container__widget"></div>
+    <br> 
+    <!-- line brakes are to account for absolute positioning -->
+    <br>
+    <br>
+    <br>    
+    <div style="text-align: center; font-size: 30px; padding-left: 10%; padding-right: 10%; padding-top: 5%;">
+        Here at <bold class="highlight">St Luke's Grammar</bold> 
+        we wanted to make a platform to enable anyone to keep track of relevant information about their portfolio of stocks. Thats why we created <bold class="highlight">Stock Wave</bold>, an all in one platform to research your portfolio of companies and track there progress.
     </div>
 
-    <div class="box">
-        <div id="widget2" class="tradingview-widget-container__widget"></div>
-    </div>
+    <div class="box"></div>
+      <h1>Our Team</h1>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <table style="padding-left: 10%; padding-right: 10%;">
+        <td class="OurTeam">
+            <p class="title">Jesse</p>
+            <p class="text">Jesse is the <bold class="highlight">documentation manager</bold>. He created the user documentation, created our logo and did general design work.</p>
+        </td>
 
-    <div class="arrow" onclick="rightFunction()">&#9654;</div>
-</div>
+        <td class="OurTeam">
+            <p class="title">Marcus</p>
+            <p class="text">Marcus is the <bold class="highlight">lead programmer</bold>, he made the website, the features, and did the prototyping</p>
+        </td>
+      </table>
 
-</body>
 <script src="script.js"></script>
+</body>
+
 </html>

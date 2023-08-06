@@ -1,3 +1,15 @@
+/* Open when someone clicks on the span element */
+function openNav() {
+  document.getElementById("myNav").style.width = "30%";
+}
+
+/* Close when someone clicks on the "x" symbol inside the overlay */
+function closeNav() {
+  document.getElementById("myNav").style.width = "0%";
+}
+
+// End of menu
+
 
 // Auto Fills in the text field with what you already have.
 document.getElementById("msg1").value = localStorage.getItem("1");
