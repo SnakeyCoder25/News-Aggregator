@@ -1,3 +1,4 @@
+
 *{
   padding: 0;
   margin: 0;
@@ -89,7 +90,6 @@ width: 60%;
 text-align: left;
 }
 /* End of Menu */
-
 
 
 /* GPT CSS */
@@ -230,20 +230,12 @@ input[type="text"] {
 
 
 #msg {
-  transition: background-color 500ms ease; /* Set the transition properties for the background color */
+  
   border: solid #004ba0;
 }
 
-/* Define the CSS animation using keyframes to smoothly transition the background color */
-@keyframes smoothBackground {
-  0% { background-color: #fff; } /* Start with the initial background color */
-  100% { background-color: rgb(0, 0, 255); } /* End with the final background color */
-}
 
-/* Add a class to the input field to trigger the animation */
-.smooth-transition {
-  animation: smoothBackground 500ms; /* Use the defined keyframes for the animation */
-}
+
 
 
 
@@ -261,3 +253,7 @@ button {
 button:hover {
   background-color: #004ba0;
 }
+
+
+
+  
