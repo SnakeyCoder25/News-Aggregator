@@ -1,0 +1,156 @@
+<html>
+<head>
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" type="image/x-icon" href="img/icon.png">
+
+
+</head>
+</head>
+<body>
+    <!-- The overlay -->
+    <div id="myNav" class="overlay">
+
+        <!-- Button to close the overlay navigation -->
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      
+        <!-- Overlay content -->
+        <div class="overlay-content">
+          <table class="menuTable">
+          <td id="Link"><a  href="..\HomeFeed\index.html">My Feed</a></td>
+          <td><img src="../Menue Testing/IconsSDD/HouseIcon.png" alt="HouseIcon" width=20%></td>
+        </table>
+    
+        <table>
+          <td id="Link"><a  href="..\add-stocks\index.html">Add Stocks</a></td>
+          <td><img src="../Menue Testing/IconsSDD/AddIcon.png" alt="" width="20%"></td>
+        </table>
+    
+        <table>
+          <td id="Link"><a  href="../browse-news\Browse-NewsPg.html">Browse Stocks</a></td>
+          <td><img src="../Menue Testing/IconsSDD/StonksIcon.png" alt="" width="20%"></td>
+        </table>
+    
+        <table>
+          <td id="Link"><a  href="../browse-news/Browse-NewsPg.html">Search News</a></td>
+          <td><img src="../Menue Testing/IconsSDD/NewsIcon.png" alt="" width="20%"></td>
+        </table>
+        
+        <table>
+          <td id="Link"><a  href="../AboutPage/Index.html">About Us</a></td>
+          <td><img src="../Menue Testing/IconsSDD/InfoIcon.png" alt="" width="20%"></td>
+        </table>
+        
+        <table>
+          <td id="Link"><a  href="../HelpPage\index.html">Help</a></td>
+          <td><img src="../Menue Testing/IconsSDD/QuestionMarkIcon.png" alt="" width="20%"></td>
+        </table>
+    
+      </div>
+      
+    </div>
+      
+      <!-- Use any element to open/show the overlay navigation menu -->
+    
+    <!-- Table Is used to make the elements inline  -->
+      <table id="LogoTable">
+        <tr>
+            <td><span id="MenueOpen" style="position: absolute;top: 10px;font-size:50px;cursor:pointer" onclick="openNav()">&#9776; </span></td>
+    
+            <td id="Logo"><img src="../Menue Testing/StockWaveLogo (1).png" alt="Logo" width="30%"></td>
+        </tr>
+      </table>
+      <!-- End of Menu -->
+
+    <br>
+<p class="tittle">Add Stock</p> 
+
+<br>
+<h3 style="text-align: center";>Portfolio</h3>
+
+<div class="input">
+<table>
+    <tr>
+      <td> </td>
+      <td>Stock Symbol</td>
+      <td>Stock Search Term</td>
+    </tr>
+    <tr>
+        <td><p id="One">Stock 1: </p></td>
+        <td><input type="text" id="msg1" ></td>
+        <td><input type="text" id="msg1N" ></td>
+    </tr>
+    <tr>
+        <td><p id="Two">Stock 2: </p></td>
+        <td><input type="text" id="msg2" ></td>
+        <td><input type="text" id="msg2N" ></td>
+    </tr>
+    <tr>
+        <td><p id="Three">Stock 3: </p></td>
+        <td><input type="text" id="msg3" ></td>
+        <td><input type="text" id="msg3N" ></td>
+    </tr>
+    <tr>
+        <td><p id="Four">Stock 4: </p></td>
+        <td><input type="text" id="msg4" ></td>
+        <td><input type="text" id="msg4N" ></td>
+    </tr>
+
+</table>
+
+
+</div>
+<br>
+<div style="text-align: center";>
+<button id="UpdateButton" onclick="updateLocaldata()">Update</button>
+</div>
+
+<br>
+<!-- Quick Stock Search -->
+<div class="input">
+<table>
+  <tr>
+    <td><p >Search Stock: </p></td>
+    <td><input type="text" id="SearchStockInput" ></td>
+    <td><button onclick="SearchStockUpdate()">GO</button>
+</tr>
+</table>
+</div>
+<br>
+<div  id="widget3" class="tradingview-widget-container__widget"></div>
+
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<!-- Carosell Thing -->
+<div class="container">
+    <div class="arrow" onclick="leftFunction()">&#9664;</div>
+    <div class="box">
+        <div id="widget1" class="tradingview-widget-container__widget"></div>
+    </div>
+
+    <div class="box">
+        <div id="widget2" class="tradingview-widget-container__widget"></div>
+    </div>
+
+    <div class="arrow" onclick="rightFunction()">&#9654;</div>
+</div>
+
+</body>
+<script src="script.js"></script>
+</html>

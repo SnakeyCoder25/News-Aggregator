@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="script.js"></script>
+  
+
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="icon" type="image/x-icon" href="img/icon.png">
+</head>
+<body>
+
+      <!-- The overlay -->
+      <div id="myNav" class="overlay">
+
+        <!-- Button to close the overlay navigation -->
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      
+        <!-- Overlay content -->
+        <div class="overlay-content">
+          <table>
+          <td id="Link"><a  href="..\HomeFeed\index.html">My Feed</a></td>
+          <td><img src="../Menue Testing/IconsSDD/HouseIcon.png" alt="HouseIcon" width=20%></td>
+        </table>
+    
+        <table>
+          <td id="Link"><a  href="..\add-stocks\index.html">Add Stocks</a></td>
+          <td><img src="../Menue Testing/IconsSDD/AddIcon.png" alt="" width="20%"></td>
+        </table>
+    
+        <table>
+          <td id="Link"><a  href="../browse-news\Browse-NewsPg.html">Browse Stocks</a></td>
+          <td><img src="../Menue Testing/IconsSDD/StonksIcon.png" alt="" width="20%"></td>
+        </table>
+    
+        <table>
+          <td id="Link"><a  href="../browse-news/Browse-NewsPg.html">Search News</a></td>
+          <td><img src="../Menue Testing/IconsSDD/NewsIcon.png" alt="" width="20%"></td>
+        </table>
+        
+        <table>
+          <td id="Link"><a  href="../AboutPage/Index.html">About Us</a></td>
+          <td><img src="../Menue Testing/IconsSDD/InfoIcon.png" alt="" width="20%"></td>
+        </table>
+        
+        <table>
+          <td id="Link"><a  href="../HelpPage\index.html">Help</a></td>
+          <td><img src="../Menue Testing/IconsSDD/QuestionMarkIcon.png" alt="" width="20%"></td>
+        </table>
+    
+      </div>
+      
+    </div>
+      
+      <!-- Use any element to open/show the overlay navigation menu -->
+    
+    <!-- Table Is used to make the elements inline  -->
+      <table id="LogoTable">
+        <tr>
+            <td><span id="MenueOpen" style="position: absolute;top: 10px;font-size:50px;cursor:pointer" onclick="openNav()">&#9776; </span></td>
+    
+            <td id="Logo"><img src="../Menue Testing/StockWaveLogo (1).png" alt="Logo" width="30%"></td>
+        </tr>
+      </table>
+      <!-- End of Menu -->
+  </div>
+
+  <div class="wrapper">
+    <h1>Browse Stocks</h1>
+    <br>
+    <input type="text" id="msg" placeholder="Enter a Stock Symbol">
+    <button onclick="loadChart();">GO</button>
+  </div>
+
+<br>
+<!-- ------------------------------------------------------- -->
+<!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+    <div id="tradingview_fe422"></div>
+    <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+
+    <script type="text/javascript">
+function loadChart(){
+      let symbol = document.getElementById("msg").value;
+    new TradingView.widget(
+    {
+    "width": 980,
+    "height": 610,
+    "symbol": "NASDAQ:" + symbol,
+    "interval": "240",
+    "timezone": "Etc/UTC",
+    "theme": "light",
+    "style": "1",
+    "locale": "en",
+    "toolbar_bg": "#f1f3f6",
+    "enable_publishing": false,
+    "allow_symbol_change": true,
+    "container_id": "tradingview_fe422"
+  }
+    );
+
+}
+    </script>
+  </div>
+  <!-- TradingView Widget END -->
+ 
+<script src="script.js"></script>
+</body>
+
+</html>

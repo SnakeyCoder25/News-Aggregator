@@ -1,0 +1,259 @@
+
+*{
+  padding: 0;
+  margin: 0;
+}
+
+
+/* The Overlay (background) */
+.overlay {
+  /* Height & width depends on how you want to reveal the overlay (see JS below) */   
+  height: 100%;
+  width: 0;
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  background-color: #999999; 
+  
+  overflow-x: hidden; /* Disable horizontal scroll */
+  transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+}
+
+
+/* Position the content inside the overlay */
+.overlay-content {
+  position: relative;
+  top: 25%; /* 25% from the top */
+  width: 90%; /*Moves the table towards to left*/
+  
+  margin-top: 0px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+  padding-left: 2%; /* to move the text to the right*/
+}
+
+/* The navigation links inside the overlay */
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: black;
+  display: block; /* Display block instead of inline */
+  transition: 0.3s; /* Transition effects on hover (color) */
+}
+
+/* When you mouse over the navigation links, change their color */
+.overlay a:hover,.overlay a:focus {
+  color: #f1f1f1;
+}
+
+#MenueOpen:hover{
+  color: f1f1f1
+}
+
+/* Position the close button (top left corner) */
+.overlay .closebtn {
+  position: absolute;
+  top: 5px;
+  left: 10px;
+  font-size: 60px;
+}
+
+/* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+@media screen and (max-height: 450px) {
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
+}
+
+#logoTable{
+background-color: #BEBDB8;
+}
+
+table {
+
+  padding: 10px;
+
+  width: 100%;
+
+  /* Tempborder: solid; */
+}
+td{
+
+text-align: center;
+
+}
+#Link{
+width: 60%;
+text-align: left;
+}
+/* End of Menu */
+
+
+/* GPT CSS */
+.article-container {
+  padding: 20px;
+  background-color: #e6f1f6;
+  border: 1px solid #a3c8d9;
+  border-radius: 5px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+}
+
+.article-image {
+  width: 150px;
+  object-fit: cover;
+  margin-right: 20px;
+  border-right: 10px solid #333; /*Creating a verticle bar*/
+  padding-right: 10px;
+}
+
+.article-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.article-title {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+.article-source {
+  color: #666;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.article-description {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.article-link {
+  display: inline-block;
+  padding: 8px 12px;
+  background-color: #FF6347;
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  border: 2px solid #FF6347;
+  /* Orange border color */
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  width: 500px; /* Consistant length*/
+
+  overflow: hidden; 
+  /* Stops Link text going off the box */
+}
+
+.article-link:hover {
+  background-color: whitesmoke;
+  /* white background color on hover */
+  color: black;
+  /* White text color on hover */
+}
+
+
+
+.news-container {
+  margin: 0 auto;
+  width: 70%;
+  padding: 20px;
+}
+
+.search-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  width: 300px;
+  padding: 8px;
+  font-size: 16px;
+}
+
+.search-button {
+  padding: 8px 16px;
+  font-size: 16px;
+  background-color: #0366d6;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.search-button:hover {
+  background-color: #004ba0;
+}
+
+/*----------------------------------------  */
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 0;
+  /* Remove top margin */
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+  margin-top: 0;
+  /* Remove top margin */
+}
+
+
+
+input[type="text"] {
+  width: 300px;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+
+  /* background-color: #f2f2f2; */
+  margin-bottom: 10px;
+
+
+}
+
+
+
+#msg {
+  
+  border: solid #004ba0;
+}
+
+
+
+
+
+
+
+button {
+  padding: 12px 24px;
+  font-size: 16px;
+  background-color: #0366d6;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #004ba0;
+}
+
+
+
+  
