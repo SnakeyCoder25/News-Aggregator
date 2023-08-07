@@ -1,4 +1,95 @@
-*{margin: 0; padding: 0;}
+
+*{
+  padding: 0;
+  margin: 0;
+}
+
+
+/* The Overlay (background) */
+.overlay {
+  /* Height & width depends on how you want to reveal the overlay (see JS below) */   
+  height: 100%;
+  width: 0;
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  background-color: #999999; 
+  
+  overflow-x: hidden; /* Disable horizontal scroll */
+  transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+}
+
+
+/* Position the content inside the overlay */
+.overlay-content {
+  position: relative;
+  top: 25%; /* 25% from the top */
+  width: 90%; /*Moves the table towards to left*/
+  
+  margin-top: 0px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+  padding-left: 2%; /* to move the text to the right*/
+}
+
+/* The navigation links inside the overlay */
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: black;
+  display: block; /* Display block instead of inline */
+  transition: 0.3s; /* Transition effects on hover (color) */
+}
+
+/* When you mouse over the navigation links, change their color */
+.overlay a:hover,.overlay a:focus {
+  color: #f1f1f1;
+}
+
+#MenueOpen:hover{
+  color: f1f1f1
+}
+
+/* Position the close button (top left corner) */
+.overlay .closebtn {
+  position: absolute;
+  top: 5px;
+  left: 10px;
+  font-size: 60px;
+}
+
+/* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+@media screen and (max-height: 450px) {
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
+}
+
+#LogoTable{
+background-color: #BEBDB8;
+}
+
+table {
+
+  padding: 10px;
+
+  width: 100%;
+
+  /* Tempborder: solid; */
+}
+td{
+
+text-align: center;
+
+}
+#Link{
+width: 60%;
+text-align: left;
+}
+/* End of Menu */
 
 
 .center{text-align: center;}
@@ -48,78 +139,106 @@
   
 /* GPT */
 .article-container {
-  padding: 10px;
-  background-color: #E6F1F6; /* Light blue background */
-  border: 1px solid #A3C8D9; /* Border color */
+  padding: 20px;
+  background-color: #e6f1f6;
+  border: 1px solid #a3c8d9;
   border-radius: 5px;
   overflow: hidden;
-  margin-bottom: 20px; /* Space between news widgets */
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
 }
 
 .article-image {
-  float: left;
-  width: 120px; /* Reduced image width */
-  margin-right: 10px; /* Space between image and content */
-  border: 2px solid #000; /* 2px border with black color */
-  box-sizing: border-box; /* Include border in the width calculation */
+  width: 150px;
+  object-fit: cover;
+  margin-right: 20px;
+  border-right: 10px solid #333; /*Creating a verticle bar*/
+  padding-right: 10px;
 }
 
 .article-content {
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .article-title {
   margin-top: 0;
-  margin-bottom: 5px; /* Adjusted margin */
-  font-size: 18px; /* Increased font size */
+  margin-bottom: 10px;
+  font-size: 24px;
 }
 
 .article-source {
   color: #666;
-  margin-bottom: 5px; /* Adjusted margin */
-  font-size: 14px; /* Adjusted font size */
+  margin-bottom: 10px;
+  font-size: 16px;
 }
 
 .article-description {
-  margin-bottom: 5px; /* Adjusted margin */
-  font-size: 14px; /* Adjusted font size */
+  margin-bottom: 10px;
+  font-size: 16px;
 }
 
 .article-link {
   display: inline-block;
-  padding: 8px 16px;
-  background-color: #FF6347; /* Orange background color */
-  color: #FFF; /* White text color */
+  padding: 8px 12px;
+  background-color: #FF6347;
+  color: #fff;
   text-decoration: none;
-  font-size: 14px; /* Adjusted font size */
-  border: 2px solid #FF6347; /* Orange border color */
+  font-size: 14px;
+  border: 2px solid #FF6347;
+  /* Orange border color */
   border-radius: 5px;
   transition: background-color 0.3s ease, color 0.3s ease;
+  width: 500px; /* Consistant length*/
+
+  overflow: hidden; 
+  /* Stops Link text going off the box */
 }
 
 .article-link:hover {
-  background-color: #FFF; /* White background color on hover */
-  color: #FF6347; /* Orange text color on hover */
+  background-color: whitesmoke;
+  /* white background color on hover */
+  color: black;
+  /* White text color on hover */
 }
+
+
 
 .news-container {
-  margin: 0 auto; /* Center the news widgets horizontally */
-  width: 70%; /* Set the width to 70% of the screen */
-  padding: 20px; /* Space between the edge of the screen and news widgets */
+  margin: 0 auto;
+  width: 70%;
+  padding: 20px;
 }
 
-
-
-  
-/* Tittle  */
-
-.news-heading {
-  font-size: 36px;
-  font-weight: bold;
+.search-container {
   text-align: center;
-  margin-bottom: 40px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  width: 300px;
+  padding: 8px;
+  font-size: 16px;
+}
+
+.search-button {
+  padding: 8px 16px;
+  font-size: 16px;
+  background-color: #0366d6;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.search-button:hover {
+  background-color: #004ba0;
+}
+
+.news-heading{
+  text-align: center;
   color: #333;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  font-size: 40px;
 }

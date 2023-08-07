@@ -111,3 +111,10 @@ function SearchStockUpdate(){
   let searchSymbol = document.getElementById("SearchStockInput").value;
   loadWidget(searchSymbol, "widget3");
 }
+
+document.addEventListener("keydown", function(event) {
+  if (event.key === "Enter") {
+      event.preventDefault(); // Prevent the default Enter key behavior (e.g., submitting forms).
+      SearchStockUpdate(); // Call your JavaScript function here.
+  }
+});

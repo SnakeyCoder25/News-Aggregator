@@ -1,3 +1,14 @@
+/* Open when someone clicks on the span element */
+function openNav() {
+  document.getElementById("myNav").style.width = "30%";
+}
+
+/* Close when someone clicks on the "x" symbol inside the overlay */
+function closeNav() {
+  document.getElementById("myNav").style.width = "0%";
+}
+
+// End of menu
 // Start
 
 var symbols = [String(localStorage.getItem("1")), String(localStorage.getItem("2")), String(localStorage.getItem("3")), String(localStorage.getItem("4"))]; // Stock symbols for the widgets

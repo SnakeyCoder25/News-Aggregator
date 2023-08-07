@@ -6,7 +6,6 @@
   
 
   <link rel="stylesheet" href="styles.css"/>
-  <link rel="icon" type="image/x-icon" href="img/icon.png">
 </head>
 <body>
 
@@ -101,6 +100,13 @@ function loadChart(){
     );
 
 }
+
+document.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        event.preventDefault(); // Prevent the default Enter key behavior (e.g., submitting forms).
+        loadChart(); // Call your JavaScript function here.
+    }
+});
     </script>
   </div>
   <!-- TradingView Widget END -->
