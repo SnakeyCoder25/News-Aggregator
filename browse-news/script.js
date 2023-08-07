@@ -12,6 +12,7 @@ function closeNav() {
 
 
 function getNews() {
+  console.log("Testing");
 
     var searchWord = document.getElementById("msg").value;
     const currentDate = new Date();
