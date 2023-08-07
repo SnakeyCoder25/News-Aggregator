@@ -236,3 +236,9 @@ text-align: left;
 .search-button:hover {
   background-color: #004ba0;
 }
+
+.news-heading{
+  text-align: center;
+  color: #333;
+  font-size: 40px;
+}
