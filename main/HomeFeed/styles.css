@@ -139,41 +139,45 @@ text-align: left;
   
 /* GPT */
 .article-container {
-  padding: 10px;
-  background-color: #E6F1F6; /* Light blue background */
-  border: 1px solid #A3C8D9; /* Border color */
+  padding: 20px;
+  background-color: #e6f1f6;
+  border: 1px solid #a3c8d9;
   border-radius: 5px;
   overflow: hidden;
-  margin-bottom: 20px; /* Space between news widgets */
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
 }
 
 .article-image {
-  float: left;
-  width: 120px; /* Reduced image width */
-  margin-right: 10px; /* Space between image and content */
-  border: 2px solid #000; /* 2px border with black color */
-  box-sizing: border-box; /* Include border in the width calculation */
+  width: 150px;
+  object-fit: cover;
+  margin-right: 20px;
+  border-right: 10px solid #333; /*Creating a verticle bar*/
+  padding-right: 10px;
 }
 
 .article-content {
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .article-title {
   margin-top: 0;
-  margin-bottom: 5px; /* Adjusted margin */
-  font-size: 18px; /* Increased font size */
+  margin-bottom: 10px;
+  font-size: 24px;
 }
 
 .article-source {
   color: #666;
-  margin-bottom: 5px; /* Adjusted margin */
-  font-size: 14px; /* Adjusted font size */
+  margin-bottom: 10px;
+  font-size: 16px;
 }
 
 .article-description {
-  margin-bottom: 5px; /* Adjusted margin */
-  font-size: 14px; /* Adjusted font size */
+  margin-bottom: 10px;
+  font-size: 16px;
 }
 
 .article-link {
@@ -194,28 +198,41 @@ text-align: left;
 }
 
 .article-link:hover {
-  background-color: #FFF; /* White background color on hover */
-  color: #FF6347; /* Orange text color on hover */
+  background-color: whitesmoke;
+  /* white background color on hover */
+  color: black;
+  /* White text color on hover */
 }
+
+
 
 .news-container {
-  margin: 0 auto; /* Center the news widgets horizontally */
-  width: 70%; /* Set the width to 70% of the screen */
-  padding: 20px; /* Space between the edge of the screen and news widgets */
+  margin: 0 auto;
+  width: 70%;
+  padding: 20px;
 }
 
-
-
-  
-/* Tittle  */
-
-.news-heading {
-  font-size: 36px;
-  font-weight: bold;
+.search-container {
   text-align: center;
-  margin-bottom: 40px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: #333;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  margin-bottom: 20px;
+}
+
+.search-input {
+  width: 300px;
+  padding: 8px;
+  font-size: 16px;
+}
+
+.search-button {
+  padding: 8px 16px;
+  font-size: 16px;
+  background-color: #0366d6;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.search-button:hover {
+  background-color: #004ba0;
 }
