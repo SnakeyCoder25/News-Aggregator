@@ -12,6 +12,7 @@ function closeNav() {
 
 
 function getNews() {
+
     var searchWord = document.getElementById("msg").value;
     const currentDate = new Date();
   
@@ -99,4 +100,9 @@ function getNews() {
   
 
   
-  
+  document.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        event.preventDefault(); // Prevent the default Enter key behavior (e.g., submitting forms).
+        getNews(); // Call your JavaScript function here.
+    }
+});
